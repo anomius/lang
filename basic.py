@@ -3,20 +3,43 @@
 #######################################
 
 DIGITS = '0123456789'
+
+#########################################################
+#########################################################
+################          Errors        ##################
+#########################################################
+#########################################################
+
+class Error:
+    def __init__(self,name,error_details):
+        self.name=name
+        self.details=error_details
+    def __str__(self):
+        return f'{self.name}:{self.details}'
+
+class IllegalCharError(Error):
+
+
+
+
+
+
+
+
 #########################################################
 #########################################################
 ################         TOKENS        ##################
 #########################################################
 #########################################################
 
-TT_INT		= 'INT'
+TT_INT		= 'INT' 
 TT_FLOAT    = 'FLOAT'
 TT_PLUS     = 'PLUS'
 TT_MINUS    = 'MINUS'
 TT_MUL      = 'MUL'
 TT_DIV      = 'DIV'
-TT_LPAREN   = 'LPAREN'
-TT_RPAREN   = 'RPAREN'
+TT_LPAREN   = 'LPAREN'  #(
+TT_RPAREN   = 'RPAREN'  #)
 
 
 
@@ -24,7 +47,7 @@ TT_RPAREN   = 'RPAREN'
 
 
 
-class tokens:
+class Token:
     def __init__(self,type_,value_) -> None:
         self.type=type_
         self.value=value_
@@ -35,14 +58,14 @@ class tokens:
 
 
 
-
 #########################################################
 #########################################################
 ################          LEXER        ##################
 #########################################################
 #########################################################
 
-class lexer:
+
+class Lexer:
     def __init__(self,text) -> None:
         self.text=text 
         self.pos=-1
@@ -85,4 +108,23 @@ class lexer:
                 return [], IllegalCharError(pos_start, self.pos, "'" + char + "'")
 
         return tokens, None
-        return tokens
+        
+    def make_number(self):
+        num_str=""
+        dot_count=0
+
+        while self.current_char != None and self.current_char in DIGITS + ".":
+            if self.current_char=='.':
+                dot_count == 1: break
+                dot_count += 1
+                num_str += '.'
+            else:
+                num_str += self.current_char
+
+        if dot_count == 0:
+            return Token(TT_INT,int(num_str))
+                  
+        if dot_count == 1:
+            return Token(TT_FLOAT,float(num_str))
+                  
+

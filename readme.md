@@ -9,11 +9,8 @@ The simple answer, of course, is because I hate myself.
 
  The more accurate answer is because I wanted to try out writing a basic interpreter and grammar, in preparation for possibly writing an LLVM compiler for a few esoteric programming languages in the near future
 
-
-
-
-
-# This is a Esoteric language named __Why__ lang
+# This is a Esoteric language named _Why_ lang
 
 - [ ] creating a lexer to parse the input
-- [ ] initializing the token system 
+  - [X] initializing the token system 
+  - [X] created an number recognition on lexer
