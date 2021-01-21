@@ -18,7 +18,8 @@ class Error:
         return f'{self.name}:{self.details}'
 
 class IllegalCharError(Error):
-
+    def __init__(self,error_details):
+        super().__init__("Illegal character",details)
 
 
 
@@ -48,7 +49,7 @@ TT_RPAREN   = 'RPAREN'  #)
 
 
 class Token:
-    def __init__(self,type_,value_) -> None:
+    def __init__(self,type_,value_=None) -> None:
         self.type=type_
         self.value=value_
     
@@ -127,4 +128,8 @@ class Lexer:
         if dot_count == 1:
             return Token(TT_FLOAT,float(num_str))
                   
+    def run(text):
+        lexer =Lexer(text)
+        tokens, error = lexer.make_tokens()
 
+        return tokens,error     
