@@ -7,12 +7,10 @@ I'm sure the question everyone is thinking is "why." Why make a programming lang
 
 The simple answer, of course, is because I hate myself.
 
-![HLZirW5](other\HLZirW5.jpg)
+![My Life In an Image](other\HLZirW5.jpg)
 
  The more accurate answer is because I wanted to flex my superior python Coding skills, by creating things more slower than Python, and i wanted to try out writing a basic interpreter and grammar, in preparation for possibly writing an LLVM compiler for a few esoteric programming languages in the near future..
  (More Pain to come 😭😭😢😎) 
-
-
 
 # This is a Esoteric language named _Why_ lang
 
